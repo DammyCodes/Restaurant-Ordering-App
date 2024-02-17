@@ -15,11 +15,45 @@
                 <p>The best burgers and pizzas in town</p>
             </div>
         </header>
+
         <main>
-            <div class="menu-container"></div>
-            <div class="order-container"></div>
+            <div class="menu-container" id="menu-container"></div>
+            <div class="order-wrapper">
+                <h2>Your order</h2>
+                <div class="item" id="order-item"></div>
+                <div class="item">
+                    <h2>Total price:</h2>
+                    <p class="order-price" id="total-amount"></p>
+                </div>
+                <button class="order-btn">Complete order</button>
+            </div>
         </main>
+       
+        <div class="card-details">
+            <h2>Enter card details</h2>     
+
+            <form id="form-data">
+                <input 
+                type="text" 
+                placeholder="Enter your name" name="fullName" 
+                required/>
+
+                <input 
+                type="number" 
+                placeholder="Enter card number" name="cardNumber" 
+                required/>
+
+                <input 
+                type="number" 
+                placeholder="Enter CVV" 
+                name="CVV" 
+                required/>
+
+                <button type="submit" class="submit">Pay</button>
+            </form>
+        </div>
     </div>
+
     <script src="index.js" type="module"></script>
 </body>
 </html>
