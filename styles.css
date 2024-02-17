@@ -4,26 +4,25 @@
     box-sizing: border-box;
 }
 .container {
+    font-family: "Roboto Condensed", sans-serif;
     width: 500px;
     border: 3px solid #555;
     border-radius: 10px;
     margin: 20px auto;
-    min-height: 100vh;
-   
 }
 
 
 header {
     background-image: url(diner.jpg);
     color: #fff;
-    text-shadow: 0 2px 3px #ca5d2a;
+    text-shadow: 0 2px 3px #914725;
     height: 150px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 30%;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    padding-left: 10px;
 }
 
 header h1 {
@@ -42,6 +41,7 @@ header p {
     align-items: center;
     margin: 0 20px;
     padding-bottom: 20px;
+    line-height: 40px;
     border-bottom: 1px solid #d6c0c0;
 }
 
@@ -58,11 +58,12 @@ header p {
 
 #add-btn {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 400;
     border: 1px solid #d6c0c0;
     width: 30px;
     height: 30px;
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 5px;
     border-radius: 50%;
@@ -170,7 +171,7 @@ input {
     border-radius: 5px;
 }
 
-.submit {
+#submit {
     margin-top: 20px;
     padding: 10px;
     font-size: 18px;
@@ -201,11 +202,11 @@ input {
 }
 
 .my-order {
-    background-color: aquamarine;
-    font-size: 18px;
+    background-color: rgb(103, 243, 48);
+    color: whitesmoke;
+    font-size: 30px;
     text-align: center;
-    text-shadow: 0 0 2px #25668b;
-    padding: 10px;
-    border: 1px solid aquamarine;
-    border-radius: 3px;
+    text-shadow: 0 0 5px #110a0a;
+    padding: 30px;
+    border-radius: 5px;
 }
