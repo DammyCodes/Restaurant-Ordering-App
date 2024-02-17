@@ -2,21 +2,20 @@ import { menuArray } from './data.js'
 
 let orderArr = []
 const orderBtn = document.querySelector('.order-btn')
-const pay = document.querySelector('.submit')
+const pay = document.getElementById('submit')
+const cardDetails = document.querySelector('.card-details')
 const formData = document.getElementById('form-data')
-const orderSummary = document.getElementById('order-summary')
-const orderArrCont = document.querySelector('.order-array-cont')
-
+const orderWrapper = document.querySelector('.order-wrapper')
 
 
 // this is a function used to render other functions when an element is clicked
 document.addEventListener('click', function(e) {
     if (e.target.dataset.add) {
-        document.querySelector('.order-wrapper').style.display = 'flex';
+       orderWrapper.style.display = 'flex';
         getArr(e.target.dataset.add);
         getOrderArray();
     }
-    if (e.target.dataset.remove) {
+    else if (e.target.dataset.remove) {
         getArr(e.target.dataset.add)
         deleteArr(e.target.dataset.remove)
     }
@@ -24,12 +23,13 @@ document.addEventListener('click', function(e) {
 
 
 orderBtn.addEventListener('click', function() {
-    document.querySelector('.card-details').style.display = 'flex'
+    cardDetails.style.display = 'flex'
 }) 
-  
-pay.addEventListener('click', function() {
-    payforOrder(e)
-})  
+
+pay.addEventListener('click', function(e) {
+        payforOrder(e)
+})
+   
 
 // function to render the items on the menu
 document.getElementById('menu-container').innerHTML = menuArray.map(function(menu) {
@@ -63,8 +63,6 @@ function getArr(itemId) {
    
 }
 
-
-
 // function that renders the items ordered
 function getOrderArray() {
     let arrayHtml = ''
@@ -83,7 +81,7 @@ function getOrderArray() {
        
     })
   
-    document.getElementById('total-amount').textContent = `$${totalPrice}`
+    document.getElementById('total-amount').textContent = `$${totalPrice.toFixed(2)}`
     document.getElementById('order-item').innerHTML = arrayHtml
 
        
@@ -98,21 +96,23 @@ function deleteArr(itemId) {
     
   }
   
+  let newDisplay = ``
 
 function payforOrder(e) {
     e.preventDefault()
+    cardDetails.style.display = 'none'
     const cardDetailsData = new FormData(formData)
     const fullName = cardDetailsData.get('fullName')
-    document.querySelector('.card-details').style.display = 'none'
-    orderSummary.style.display = 'flex'
-    let newDisplay = ``
     newDisplay += 
     ` <div class="my-order">
         Hi ${fullName}, your order is on the way!
     </div>
     `
-    orderArrCont.innerHTML = newDisplay 
-    console.log(orderArrCont)
+    orderWrapper.style.display = 'flex'
+    orderWrapper.innerHTML = newDisplay 
+    console.log(newDisplay)
+    
+   
 }
    
 
